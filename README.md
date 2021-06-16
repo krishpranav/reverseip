@@ -9,6 +9,13 @@ git clone https://github.com/krishpranav/reverseip
 cd reverseip
 ```
 
+- pre requirements:
+```
+mechanize - sudo gem install mechanize
+colorize  - sudo gem install colorize
+```
+
+
 # running the tool
 ```bash
 $ echo "alias ReverseIP='ruby ~/reverseip.rb'" >> ~/.zshrc
