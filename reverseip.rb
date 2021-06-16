@@ -33,3 +33,12 @@ def statusCode(site)
         return '???'.colorize(:red)
     end
 end
+
+
+def getCMS(site)
+    cms = ''
+    begin
+        cms  = Mechanize.new.get('http://' + site).at('meta[name="generator"]')[:content][0..50]
+        return ' -- ' + '[ '.colorize(:cyan) + cms.to_s.colorize(:yellow) + ' ]'.colorize(:cyan)
+    rescue StandartError; end
+end
