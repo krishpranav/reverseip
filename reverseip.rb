@@ -42,3 +42,6 @@ def getCMS(site)
         return ' -- ' + '[ '.colorize(:cyan) + cms.to_s.colorize(:yellow) + ' ]'.colorize(:cyan)
     rescue StandartError; end
 end
+
+if parsed['status'] == 'failure' || parsed['status'] == 'failure'
+	abort('[!] '.colorize(:red) + parsed['message'].split('. ')[0] + "\n#{sep}\n")
