@@ -62,3 +62,4 @@ else
 		puts getCMS(domain[0])
 	}
 end
+puts sep
