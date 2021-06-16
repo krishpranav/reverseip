@@ -19,3 +19,17 @@ ip = gets.chomp
 json   = Mechanize.new.post('https://domains.yougetsignal.com/domains.php', { 'remoteAddress' => ip, 'key' => '' }, 'Content-type' => 'application/x-www-form-urlencoded').body
 parsed = JSON.parse(json)
 puts sep
+
+
+# status code function
+def statusCode(site)
+    response = ''
+    begin
+        Net::HTTP.start(site, 80) {|http|
+                response = http.head('/')
+        }
+        return response.code.colorize(:yellow)
+    rescue StandartError
+        return '???'.colorize(:red)
+    end
+end
